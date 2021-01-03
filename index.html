@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TODO App</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Titillium+Web"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/heart.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+  </head>
+  <body>
+    <main class="snow">
+      <div class="container">
+        <div class="header"></div>
+        <div class="date">Monday, Dec 28</div>
+        <div class="content">
+          <ul class="list">
+            <li class="item">
+              <i class="fa fa-circle-thin complete" job="complete"></i>
+              <p class="text">Add your first todo</p>
+              <i class="fa fa-trash-o delete" job="delete"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="add-item">
+          <input id="input" type="text" placeholder="Write down your todo" />
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="js/api.js"></script>
+  <script src="js/script.js"></script>
+</html>
