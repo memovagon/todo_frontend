@@ -1,4 +1,4 @@
-# todo applicaiton
+# TODO Application
 
 Todo Application frontend.
 
