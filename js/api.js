@@ -1,34 +1,24 @@
-function apiGet() {
-  var request = new XMLHttpRequest();
-  request.open('GET', 'http://0.0.0.0:5000/api/todo', true);
-  request.onload = function () {
-    console.log('API GET');
-
-    const data = JSON.parse(this.response);
-    if (data) {
-      listDom.innerHTML = '';
-      for (let todo of data['todos']) addNote(todo);
-    }
-  };
-  request.send();
+async function apiGetData() {
+  const response = await fetch('http://0.0.0.0:5000/api/todo');
+  const data = await response.json();
+  return data;
 }
 
-function apiDelete(note) {
-  var request = new XMLHttpRequest();
-  request.open('DELETE', `http://0.0.0.0:5000/api/todo?note=${note}`, true);
+apiGetData().then(data => {
+  const notes = data['todos'];
+  if (notes) {
+    listDom.innerHTML = '';
+    for (let todo of notes) addNote(todo);
+  }
+});
 
-  request.onload = function () {
-    console.log('API DELETE');
-  };
-  request.send();
+async function apiPostData(note) {
+  const response = await fetch(`http://0.0.0.0:5000/api/todo?note=${note}`, { method: 'POST' });
+  const data = await response.json();
+  return data;
 }
 
-function apiPost(note) {
-  var request = new XMLHttpRequest();
-  request.open('POST', `http://0.0.0.0:5000/api/todo?note=${note}`, true);
-
-  request.onload = function () {
-    console.log('API POST');
-  };
-  request.send();
+async function apiDeleteData(note) {
+  const response = await fetch(`http://0.0.0.0:5000/api/todo?note=${note}`, { method: 'DELETE' });
+  return response;
 }

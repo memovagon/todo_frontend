@@ -17,20 +17,16 @@ listDom.addEventListener('click', eventListClicked);
 
 //main
 dateDom.textContent = getDate();
-console.log(getDate());
-apiGet();
+apiGetData();
 
 // functions
-function printList() {
-  console.log(itemList);
-}
 
 function eventEnterPressed(event) {
   if (event.key == 'Enter') {
-    var note = inputDom.value;
+    const note = inputDom.value;
     addNote(note);
     inputDom.value = '';
-    apiPost(note);
+    apiPostData(note);
   }
 }
 
@@ -40,8 +36,8 @@ function eventListClicked(event) {
   if (element.attributes.job.value == 'complete') checkNote(element);
   if (element.attributes.job.value == 'delete') {
     deleteNote(element);
-    var note = element.parentNode.querySelector('.text').textContent;
-    apiDelete(note);
+    const note = element.parentNode.querySelector('.text').textContent;
+    apiDeleteData(note);
   }
 }
 
