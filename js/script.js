@@ -12,32 +12,32 @@ const dateDom = document.querySelector('.date');
 
 // events
 
-inputDom.addEventListener('keypress', eventEnterPressed);
-listDom.addEventListener('click', eventListClicked);
+inputDom.addEventListener('keypress', inputEnterPressed);
+listDom.addEventListener('click', listClicked);
 
 //main
 dateDom.textContent = getDate();
-apiGetData();
+apiGet();
 
 // functions
 
-function eventEnterPressed(event) {
+function inputEnterPressed(event) {
   if (event.key == 'Enter') {
     const note = inputDom.value;
     addNote(note);
     clearInput();
-    apiPostData(note);
+    apiPost(note);
   }
 }
 
-function eventListClicked(event) {
+function listClicked(event) {
   const element = event.target;
 
   if (element.attributes.job.value == 'complete') checkNote(element);
   if (element.attributes.job.value == 'delete') {
     deleteNote(element);
     const note = element.parentNode.querySelector('.text').textContent;
-    apiDeleteData(note);
+    apiDelete(note);
   }
 }
 
