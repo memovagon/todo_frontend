@@ -25,7 +25,7 @@ function eventEnterPressed(event) {
   if (event.key == 'Enter') {
     const note = inputDom.value;
     addNote(note);
-    inputDom.value = '';
+    clearInput();
     apiPostData(note);
   }
 }
@@ -39,6 +39,10 @@ function eventListClicked(event) {
     const note = element.parentNode.querySelector('.text').textContent;
     apiDeleteData(note);
   }
+}
+
+function clearInput() {
+  inputDom.value = '';
 }
 
 function addNote(note) {
